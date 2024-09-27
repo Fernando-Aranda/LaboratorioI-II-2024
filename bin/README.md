@@ -36,21 +36,11 @@ los permisos o no, de acuerdo al archivo asignado por defecto.
 ## Explicación
 1) Usuario no encontrado:
 
-Para buscar el usuario de forma correcta, se debe implementar el patrón de diseño "Adapter", para así unificar la busqueda de usuarios 
-en la base de datos y en el csv, utilizando la clase "Util.java" desde "cl.ucn.util" para buscar los usuarios en el csv, 
-luego de crear los adaptadores ("BuscarUsuarioBaseDeDatos.java" y "BuscarUsuarioCsv.java" respectivamente) se debe crear una clase 
-controladora que use ambas implementaciones ("BuscarUsuarioAdapter.java").
-
 2) Controlar el acceso a archivos protegidos:
-
 Utilizando el patrón de diseño "proxy" se debe crear una interface, haciendo que la clase "RecursosMultimedia.java" se implemente
-de ella, teniendo la función de cargar() y mostrar() en común, luego se crea una clase de "RecursosMultimediaProxy.java" que implemente el 
-interfaz proxy, así logrando controlar los accesos a los contenidos multimedias.
+de ella, además de crear una clase de "RecursosMultimediaProxy" que implemente el interfaz proxy, así se podría controlar los
+accesos a los contenidos multimedias, para buscar los usuarios en la clase "RecursosMultimediaProxy" se debe importar
+la clase "Util.java" desde "cl.ucn.util", creando así una lista de usuarios en la cual buscar, para poder ver sus permisos
 
-3) Finalmente se modifica el main para implementar ambas modificaciones:
 
-en la primera parte (Buscar usuario), primero se crean los adaptadores y luego el controlador, transfiriendo el buscador de base de datos que ya contiene
-al buscador de usuarios en Csv ("BuscarUsuarioCsv.java") para reemplazarlo con los adapters anteriormente creados y poder buscar en la base de datos y
-el csv. En la segunda parte (Controlar acceso) se debe crear el proxy para controlar el acceso a los archivos multimedia, utilizando RecursosProxy como constructor con el
-recurso real y el usuario a verificar, utilizando las funciones cargar() y mostrar() cómo "puerta de verificación" entre el usuario y el recurso.
 <hr>

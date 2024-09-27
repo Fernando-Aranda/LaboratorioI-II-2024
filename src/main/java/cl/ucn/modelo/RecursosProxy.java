@@ -1,26 +1,33 @@
 package cl.ucn.modelo;
-import java.util.List;
 
-import cl.ucn.util.Util;
 
 public class RecursosProxy implements MultimediaInterface {
-	private List<Usuario> listaUsuarios;
-	private Util buscador;
-	private RecursosMultimedia base;
-
-	public RecursosProxy(RecursosMultimedia base) {
-		super();
-		this.base = base;
-		listaUsuarios = buscador.loadCsv();
-	}
 	
-	public RecursosMultimedia getRecursosMultimedia (Usuario usuario) {
-		if(listaUsuarios.contains(usuario) && usuario.tienePermiso()) {	// usuario en base de datos y tiene permiso
-			return base;
-		}else {
-			System.out.println("Usuario no está en la base de datos");
-		}
-		
-		return null;
+	private RecursosMultimedia recursoReal;
+    private Usuario usuario;
+
+    public RecursosProxy(RecursosMultimedia recursoReal, Usuario usuario) {
+        this.recursoReal = recursoReal;
+        this.usuario = usuario;
+    }
+	
+	@Override
+	public void cargar() {
+		// TODO Auto-generated method stub
+        if (usuario.tienePermiso()) {
+            recursoReal.cargar();
+        } else {
+            System.out.println("Usuario no tiene permisos para cargar el archivo.");
+        }
 	}
+
+	@Override
+	public void mostrar() {
+		// Control de acceso
+        if (usuario.tienePermiso()) {
+            recursoReal.mostrar();
+        } else {
+            System.out.println("Usuario no tiene permisos para visualizar el archivo.");
+        }
+    }
 }
