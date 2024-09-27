@@ -53,4 +53,6 @@ en la primera parte (Buscar usuario), primero se crean los adaptadores y luego e
 al buscador de usuarios en Csv ("BuscarUsuarioCsv.java") para reemplazarlo con los adapters anteriormente creados y poder buscar en la base de datos y
 el csv. En la segunda parte (Controlar acceso) se debe crear el proxy para controlar el acceso a los archivos multimedia, utilizando RecursosProxy como constructor con el
 recurso real y el usuario a verificar, utilizando las funciones cargar() y mostrar() cómo "puerta de verificación" entre el usuario y el recurso.
+Finalmente, aunque no se especifica en el enunciado, se agrega la lista de usuarios creadas gracias al "Util.java" a la lista de usuarios creadas con la base de datos, 
+logrando así que se impriman todos los usuarios en el listado de usuarios y permisos.
 <hr>

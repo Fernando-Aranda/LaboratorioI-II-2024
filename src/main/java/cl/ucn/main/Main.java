@@ -12,9 +12,10 @@ public class Main {
 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("multimediaApp");
 		EntityManager em = emf.createEntityManager();
-
-		Util buscador = new Util();
-		List<Usuario> listaUsuarios = buscador.loadCsv();
+		
+		// Usuarios del csv
+		Util utilCsv = new Util();
+		List<Usuario> listaUsuariosCsv = utilCsv.loadCsv();
 
 		// Parte 1
 		int rut = 89830291;
@@ -53,6 +54,10 @@ public class Main {
         String jpql = "SELECT u from Usuario u";
         TypedQuery<Usuario> query1 = em.createQuery(jpql, Usuario.class);
         List<Usuario> usuarios = query1.getResultList();
+        
+        // Agregar usuarios a la lista
+        usuarios.addAll(listaUsuariosCsv);
+        
         for (Usuario usuarioIter : usuarios) {
             System.out.println("Rut: " + usuarioIter.getRut() + " Permiso: " + usuarioIter.isTienePermiso() + 
                 " Archivo: " + (usuarioIter.getRecursosMultimedia() != null ? usuarioIter.getRecursosMultimedia().getNombre() : "N/A") + 
