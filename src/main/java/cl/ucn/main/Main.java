@@ -1,5 +1,7 @@
 package cl.ucn.main;
 
+import cl.ucn.util.Util;
+
 import cl.ucn.modelo.Usuario;
 import jakarta.persistence.*;
 
@@ -11,6 +13,9 @@ public class Main {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("multimediaApp");
         EntityManager em = emf.createEntityManager();
+        
+        Util buscador = new Util();
+        List<Usuario> listaUsuarios = buscador.loadCsv() ;
 
         // Parte 1
         int rut = 89830291;
@@ -22,7 +27,11 @@ public class Main {
             System.out.println("El usuario: " + usuario.getRut() + " existe!");
         }catch (NoResultException e){
             System.out.println("El usuario no existe!");
+            for (Usuario usuario : listaUsuarios) {
+				System.out.println(usuario.toString()+"\n");
+			}
         }
+        
 
         // Parte 2
         jpql = "SELECT u from Usuario u";

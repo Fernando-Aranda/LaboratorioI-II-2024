@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name="recursos")
-public class RecursosMultimedia {
+public class RecursosMultimedia implements MultimediaInterface {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

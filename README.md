@@ -1,6 +1,6 @@
 
 # Laboratorio I-2024
-## <sup>Asignatura: Patrones de Software y Programación </sup> <br><sup>Profesor: Daniel San Martín</sup> <br> <sup> Nombre Estudiante:</sup>
+## <sup>Asignatura: Patrones de Software y Programación </sup> <br><sup>Profesor: Daniel San Martín</sup> <br> <sup> Nombre Estudiante: Fernando Aranda</sup>
 <hr>
 Dado el enunciado a continuación, implemente el patrón de diseño que usted considere necesario
 para dar solución al requerimiento. Además, explique porqué escogió el patrón, cual es su característica
@@ -34,7 +34,13 @@ los permisos o no, de acuerdo al archivo asignado por defecto.
 <hr>
 
 ## Explicación
-(Escriba aquí su explicación)
+1) Usuario no encontrado:
+
+2) Controlar el acceso a archivos protegidos:
+Utilizando el patrón de diseño "proxy" se debe crear una interface, haciendo que la clase "RecursosMultimedia.java" se implemente
+de ella, además de crear una clase de "RecursosMultimediaProxy" que implemente el interfaz proxy, así se podría controlar los
+accesos a los contenidos multimedias, para buscar los usuarios en la clase "RecursosMultimediaProxy" se debe importar
+la clase "Util.java" desde "cl.ucn.util", creando así una lista de usuarios en la cual buscar, para poder ver sus permisos
 
 
 <hr>
