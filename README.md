@@ -47,7 +47,7 @@ Utilizando el patrón de diseño "proxy" se debe crear una interface, haciendo q
 de ella, teniendo la función de cargar() y mostrar() en común, luego se crea una clase de "RecursosMultimediaProxy.java" que implemente el 
 interfaz proxy, así logrando controlar los accesos a los contenidos multimedias.
 
-3) Finalmente se modifica el main para implementar ambas modificaciones:
+3) Modificar el main para implementar ambas modificaciones:
 
 en la primera parte (Buscar usuario), primero se crean los adaptadores y luego el controlador, transfiriendo el buscador de base de datos que ya contiene
 al buscador de usuarios en Csv ("BuscarUsuarioCsv.java") para reemplazarlo con los adapters anteriormente creados y poder buscar en la base de datos y
